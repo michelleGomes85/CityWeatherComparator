@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2? family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="images/icon.jpg">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Informações Climáticas</title>
+</head>
+<body>
+	<header>
+		<div class="images">
+			<img class="sun" src="images/sun.png">
+			<img class="rain" src="images/rain.png">
+			<img class="storm" src="images/storm.png">
+		</div><!--images-->
+
+		<div class="title">
+			<h1>Informações Climáticas<br>Comparações</h1>
+			<p>Compare informações de duas cidades</p>
+		</div><!--title-->
+
+		<div class="comparison">
+			<div class="input_element">
+				<label><input type="text" id="city_one" placeholder="Cidade 1" onkeypress="validate_field(this)" autofocus></label>	
+			</div><!--input_element-->
+			
+			<div class="input_element">
+				<label><input type="text" id="city_two" placeholder="Cidade 2" onkeypress="validate_field(this)"></label>
+			</div><!--input_element-->
+			
+			<a href="#table"><button id="btn">Comparar</button></a>
+		</div><!--comparação-->
+
+	</header>
+
+	<main>
+		<div id="table">
+			<div class="header width" id="name_one"></div>
+			<div class="header" id="name_two"></div>
+
+			<div class="main">País</div>
+			<div class="line" id="country_one"></div>
+			<div class="line" id="country_two"></div>
+
+			<div class="main">Distância até Barbacena</div>
+			<div class="color" id="distance_barbacena_one"></div>
+			<div class="color" id="distance_barbacena_two"></div>
+
+			<div class="main">Descrição do tempo</div>
+			<div class="line" id="weather_description_one"></div>
+			<div class="line" id="weather_description_two"></div>
+
+			<div class="main alignment">Imagem do tempo (icon).</div>
+			<div class="color alignment_image" id="icon_one"></div>
+			<div class="color alignment_image" id="icon_two"></div>
+
+			<div class="main">Temperatura</div>
+			<div class="line" id="temperature_one"></div>
+			<div class="line" id="temperature_two"></div>
+
+			<div class="main">Sensação térmica</div>
+			<div class="color" id="feels_like_temperature_one"></div>
+			<div class="color" id="feels_like_temperature_two"></div>
+
+			<div class="main">Umidade</div>
+			<div class="line" id="humidity_one"></div>
+			<div class="line" id="humidity_two"></div>
+
+			<div class="main">Visibilidade</div>
+			<div class="color" id="visibility_one"></div>
+			<div class="color" id="visibility_two"></div>
+
+			<div class="main">Velocidade do vento</div>
+			<div class="line" id="wind_speed_one"></div>
+			<div class="line" id="wind_speed_two"></div>
+
+			<div class="main">Horário do nascer do sol</div>
+			<div class="color" id="sunrise_time_one"></div>
+			<div class="color" id="sunrise_time_two"></div>
+
+			<div class="main">Horário do pôr do sol</div>
+			<div class="line" id="sunset_time_one"></div>
+			<div class="line" id="sunset_time_two"></div>
+		</div><!--#table-->
+	</main>
+	
+	<script type="text/javascript" src="javaScript.js"></script>
+</body>
+</html>
+
