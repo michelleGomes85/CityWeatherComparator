@@ -1,1 +1,2 @@
-# Compare information between cities (Comparar informações entre cidades)
+# CityWeatherComparator (Comparação do clima entre cidades)
+
