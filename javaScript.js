@@ -103,29 +103,29 @@ btn.addEventListener("click", function () {
  */
 function query_city(city, id) {
 
-    var req = new XMLHttpRequest();
-
-    req.onloadend = function () {
-
-        if (this.readyState === 4 && this.status === 200) {
-            var resp = this.responseText;
-            var resp_obj = JSON.parse(resp);
-
-            city.style.borderColor = "blue";
-
-            show_datas(resp_obj, id);
-            display_table();
-			scroll_to_table();
-
-        } else {
-            city.style.borderColor = "red";
-            city.focus();
-            hide_table();
-        }
-    }
-
-    req.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=' + key);
-    req.send();
+	var req = new XMLHttpRequest();
+	
+	req.onloadend = function () {
+	
+		if (this.readyState === 4 && this.status === 200) {
+		    var resp = this.responseText;
+		    var resp_obj = JSON.parse(resp);
+		
+		    city.style.borderColor = "blue";
+		
+		    show_datas(resp_obj, id);
+		    display_table();
+		    scroll_to_table();
+		
+		} else {
+		    city.style.borderColor = "red";
+		    city.focus();
+		    hide_table();
+		}
+	}
+	
+	req.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=' + key);
+	req.send();
 }
 
 /**
@@ -138,52 +138,52 @@ function show_datas(response, id) {
 
 	const UNAVAILABLE = "Indisponível";
 
-    // Nome
-    document.querySelector(`#name_${id}`).innerHTML = response.name;
+	// Nome
+	document.querySelector(`#name_${id}`).innerHTML = response.name;
 
 	//País da cidade
 	document.querySelector(`#country_${id}`).innerHTML = search_field(response, "country") || UNAVAILABLE;
 
-    //Distância até Barbacena
-    const lat_barbacena = -21.2258;
-    const lon_barbacena = -43.7736;
-
-    const latitude = search_field(response, "lat");
-    const longitude = search_field(response, "lon");
+	//Distância até Barbacena
+	const lat_barbacena = -21.2258;
+	const lon_barbacena = -43.7736;
+	
+	const latitude = search_field(response, "lat");
+	const longitude = search_field(response, "lon");
 
 	document.querySelector(`#distance_barbacena_${id}`).innerHTML = latitude && longitude 
-				? (distancia_latitude_longitude ( { lat: lat_barbacena, lon: lon_barbacena }, { lat: latitude, lon: longitude } )) + ' Km' 
+				? (distance_latitude_longitude ( { lat: lat_barbacena, lon: lon_barbacena }, { lat: latitude, lon: longitude } )) + ' Km' 
 				: UNAVAILABLE;
 
 	//Descrição do tempo 
 	document.querySelector(`#weather_description_${id}`).innerHTML = search_field(response, "description") || UNAVAILABLE;
 
-    //Imagem do tempo (icon) 
+	//Imagem do tempo (icon) 
 	const icon_response = search_field(response, "icon");
-    document.querySelector(`#icon_${id}`).innerHTML = icon_response ? `<img id="imagem_icone" src="http://openweathermap.org/img/wn/${icon_response}@2x.png">` : UNAVAILABLE;
+	document.querySelector(`#icon_${id}`).innerHTML = icon_response ? `<img id="imagem_icone" src="http://openweathermap.org/img/wn/${icon_response}@2x.png">` : UNAVAILABLE;
 
-    //Temperatura 
-    const temperature = search_field(response, "temp");
+	//Temperatura 
+	const temperature = search_field(response, "temp");
 	document.querySelector(`#temperature_${id}`).innerHTML = temperature ? convert_temperature(temperature) + " Celsius" : UNAVAILABLE;
 
-    //Sensação térmica 
+	//Sensação térmica 
 	const feels_like = search_field(response, "feels_like");
 	document.querySelector(`#feels_like_temperature_${id}`).innerHTML = feels_like ? convert_temperature(feels_like) + ' Celsius' : UNAVAILABLE;
 
-    //Umidade 
-    document.querySelector(`#humidity_${id}`).innerHTML = search_field(response, "humidity") + '%' || UNAVAILABLE;
-
-    //Visibilidade 
-    document.querySelector(`#visibility_${id}`).innerHTML = search_field(response, "visibility") || UNAVAILABLE;
-
-    //Velocity do vento 
-    document.querySelector(`#wind_speed_${id}`).innerHTML = search_field(response, "speed") + "Km/h" || UNAVAILABLE;
-
-    //Horário do nascer do sol
+	//Umidade 
+	document.querySelector(`#humidity_${id}`).innerHTML = search_field(response, "humidity") + '%' || UNAVAILABLE;
+	
+	//Visibilidade 
+	document.querySelector(`#visibility_${id}`).innerHTML = search_field(response, "visibility") || UNAVAILABLE;
+	
+	//Velocity do vento 
+	document.querySelector(`#wind_speed_${id}`).innerHTML = search_field(response, "speed") + "Km/h" || UNAVAILABLE;
+	
+	//Horário do nascer do sol
 	const sunrise = search_field(response, "sunrise");
-    document.querySelector(`#sunrise_time_${id}`).innerHTML = sunrise ? convert_date(sunrise) : UNAVAILABLE;
-
-    //Horário do pôr do sol
+	document.querySelector(`#sunrise_time_${id}`).innerHTML = sunrise ? convert_date(sunrise) : UNAVAILABLE;
+	
+	//Horário do pôr do sol
 	const sunset = search_field(response, "sunset");
 	document.querySelector(`#sunset_time_${id}`).innerHTML = sunset ? convert_date(sunset) : UNAVAILABLE;
 }
@@ -195,20 +195,20 @@ function show_datas(response, id) {
  * @param {Object} loc2 - O segundo local com propriedades lat e lon
  * @returns {Number} - A distância em quilômetros
  */
-function distancia_latitude_longitude(loc1, loc2) {
+function distance_latitude_longitude(loc1, loc2) {
 
-    const R = 6371; // Raio da Terra em Km
-    const dLat = degrees_to_radian(loc2.lat - loc1.lat);
-    const dLon = degrees_to_radian(loc2.lon - loc1.lon);
-
-    const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(degrees_to_radian(loc1.lat)) * Math.cos(degrees_to_radian(loc2.lat)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return parseFloat(R * c).toFixed(2);
+	const R = 6371; // Raio da Terra em Km
+	const dLat = degrees_to_radian(loc2.lat - loc1.lat);
+	const dLon = degrees_to_radian(loc2.lon - loc1.lon);
+	
+	const a =
+	Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+	Math.cos(degrees_to_radian(loc1.lat)) * Math.cos(degrees_to_radian(loc2.lat)) *
+	Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	
+	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	
+	return parseFloat(R * c).toFixed(2);
 }
 
 /**
@@ -218,7 +218,7 @@ function distancia_latitude_longitude(loc1, loc2) {
  * @returns {Number} - O valor em radianos
  */
 function degrees_to_radian(graus) {
-    return graus * (Math.PI / 180);
+	return graus * (Math.PI / 180);
 }
 
 /**
@@ -228,7 +228,7 @@ function degrees_to_radian(graus) {
  * @returns {Number} - A temperatura em Celsius
  */
 function convert_temperature(temp) {
-    return parseFloat(temp - 273).toFixed(2);
+	return parseFloat(temp - 273).toFixed(2);
 }
 
 /**
@@ -238,7 +238,7 @@ function convert_temperature(temp) {
  * @returns {String} - A data formatada
  */
 function convert_date(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString();
+	return new Date(timestamp * 1000).toLocaleTimeString();
 }
 
 /**
@@ -246,9 +246,9 @@ function convert_date(timestamp) {
  */
 function scroll_to_table() {
 	const altura_header = document.querySelector('header').offsetHeight;
-    window.scrollBy({
-        top: altura_header,
-        left: 100,
-        behavior: 'smooth'
-    });
+	window.scrollBy({
+		top: altura_header,
+		left: 100,
+		behavior: 'smooth'
+	});
 }
