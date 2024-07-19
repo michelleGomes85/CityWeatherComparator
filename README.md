@@ -69,3 +69,8 @@ Para utilizar a API do OpenWeatherMap, é necessário configurar uma variável d
 - **convert_temperature:** Converte temperatura de Kelvin para Celsius.
 - **convert_date:** Converte data Unix para uma string legível.
 - **scroll_to_table:** Faz o scroll suave até a tabela de resultados.
+
+- ## Licença / Autor
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/michelleGomes85/CityWeatherComparator/blob/main/LICENSE) 
+[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/michellegomes85)
