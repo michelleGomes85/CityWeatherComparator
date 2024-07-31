@@ -1,20 +1,19 @@
-# CityWeatherComparator (Comparação do clima entre cidades)
+# CityWeatherComparator 🌦️🌍
 
-Este projeto é uma aplicação web que permite comparar informações climáticas de duas cidades diferentes utilizando a API do OpenWeatherMap.
-
+**CityWeatherComparator** é uma aplicação web que permite comparar as condições climáticas de duas cidades diferentes usando a API do OpenWeatherMap.
 
 ## Funcionalidades
 
-- Comparação de informações climáticas entre duas cidades
-- Exibição de dados como país, distância até Barbacena, descrição do tempo, temperatura, sensação térmica, umidade, visibilidade, velocidade do vento, horário do nascer e do pôr do sol
-- Interface responsiva para diferentes tamanhos de tela
+- 🌍 **Comparação Climática**: Compare informações climáticas entre duas cidades.
+- 🌡️ **Dados Exibidos**: País, distância até Barbacena, descrição do tempo, temperatura, sensação térmica, umidade, visibilidade, velocidade do vento, e horários do nascer e pôr do sol.
+- 📱 **Interface Responsiva**: Otimizada para diferentes tamanhos de tela.
 
 ## Tecnologias Utilizadas
 
-- HTML5
-- CSS3
-- JavaScript
-- API do OpenWeatherMap
+- 🌐 **HTML5**
+- 🎨 **CSS3**
+- ⚙️ **JavaScript**
+- 🌦️ **API do OpenWeatherMap**
 
 ## Como Utilizar
 
@@ -59,16 +58,16 @@ Para utilizar a API do OpenWeatherMap, é necessário configurar uma variável d
 
 ## Funcionalidades JavaScript
 
-- **validate_field:** Impede a entrada de números nos campos de texto das cidades.
-- **search_field:** Procura um atributo específico dentro de um objeto de dados.
-- **display_table / hide_table:** Exibe ou esconde a tabela de resultados.
-- **query_city:** Realiza a consulta da cidade na API do OpenWeatherMap.
-- **show_datas:** Exibe os dados da cidade na tabela.
-- **distance_latitude_longitude:** Calcula a distância entre duas coordenadas.
-- **degrees_to_radian:** Converte graus em radianos.
-- **convert_temperature:** Converte temperatura de Kelvin para Celsius.
-- **convert_date:** Converte data Unix para uma string legível.
-- **scroll_to_table:** Faz o scroll suave até a tabela de resultados.
+- 🔒 **validate_field**: Impede a entrada de números nos campos de texto das cidades.
+- 🔍 **search_field**: Procura um atributo específico dentro de um objeto de dados.
+- 📊 **display_table / hide_table**: Exibe ou esconde a tabela de resultados.
+- 🌆 **query_city**: Realiza a consulta da cidade na API do OpenWeatherMap.
+- 📝 **show_datas**: Exibe os dados da cidade na tabela.
+- 🌍 **distance_latitude_longitude**: Calcula a distância entre duas coordenadas.
+- 📏 **degrees_to_radian**: Converte graus em radianos.
+- 🌡️ **convert_temperature**: Converte temperatura de Kelvin para Celsius.
+- 📅 **convert_date**: Converte data Unix para uma string legível.
+- ⬇️ **scroll_to_table**: Faz o scroll suave até a tabela de resultados.
 
 - ## Licença / Autor
 
