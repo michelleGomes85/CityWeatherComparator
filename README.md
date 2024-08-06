@@ -1,5 +1,9 @@
 # CityWeatherComparator 🌦️🌍
 
+[![Aplicação](https://img.shields.io/badge/Aplicação-%23007bff.svg)](https://michelleGomes85.github.io/CityWeatherComparator/)
+
+## Sobre o projeto
+
 **CityWeatherComparator** é uma aplicação web que permite comparar as condições climáticas de duas cidades diferentes usando a API do OpenWeatherMap.
 
 ## Funcionalidades
